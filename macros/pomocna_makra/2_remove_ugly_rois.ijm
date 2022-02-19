@@ -3,7 +3,6 @@ roiCount = roiManager("count");
 
 for (i=roiCount-1; i>=0; i--) {
 
-	// measure ROI parameters
 	roiManager("select", i);
 	roiManager("Measure");
 	area = getResult("Area", nResults-1);

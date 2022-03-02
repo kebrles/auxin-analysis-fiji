@@ -26,8 +26,8 @@ for (i = 0; i < list.length; i++) {
 	}
 }
 
-runMacro("my_macros/skelets/1_find_skelets.ijm");
+runMacro("repository/macros/skelets/1_find_skelets.ijm");
 close();
-runMacro("my_macros/skelets/1_best_stack.ijm");
+runMacro("repository/macros/skelets/1_best_stack.ijm");
 
 roiManager("save", imageDirectory + "/" + imageName + "_raw_ROIs.zip");

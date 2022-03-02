@@ -14,7 +14,12 @@ open(path);
 imageDirectory = File.getDirectory(path);
 imageName = File.nameWithoutExtension;
 skeletonFileName = "SUM_" + imageName + "-denoised-skeleton.tif";
-skeleton = imageDirectory + "/projections/denoised/skeleton/" + skeletonFileName;
+skeleton = imageDirectory + "/skeleton/" + skeletonFileName;
+
+/*
+	skeleton slozka rovnou u obrazku
+	rozpoznavani skeletonu podle presne nazvu obrazku a niceho jineho koxo
+ */
 
 open(skeleton);
 runMacro("my_macros/skelets/1_find_skelets.ijm");

@@ -10,8 +10,11 @@ close();
 // preprocess green
 run("Duplicate...", "duplicate");
 selectWindow(greenChannelName);
-run("Enhance Contrast...", "saturated=2.5 normalize process_all");
-run("Gaussian Blur...", "sigma=5 stack");
+//run("Brightness/Contrast...");
+//run("Apply LUT", "stack");
+run("Enhance Contrast...", "saturated=4.5 normalize process_all");
+//run("Enhance Contrast...", "saturated=4.5 process_all use");
+run("Gaussian Blur...", "sigma=5.5 stack");
 
 // threshold
 selectWindow(greenChannelName);

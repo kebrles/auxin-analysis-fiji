@@ -19,7 +19,7 @@ def writeDataDictToCsv(data, path):
         writer = csv.writer(csvfile, dialect='excel', delimiter=",")
 
         # hlavicka = nazvy sloupcu
-        writer.writerow(["Image", "ROI", "Area", "Mean", "Line Area", "Line Mean"])
+        writer.writerow(["Image", "Order", "ROI", "Area", "PM", "cytosol", "PM/cytosol"])
 
         for key in data:
             image_data = data[key]

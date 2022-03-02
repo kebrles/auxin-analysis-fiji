@@ -31,30 +31,7 @@ if(File.exists(selectedRoisFilePath)){
 	Dialog.show();
 }
 
-run("Clear Results");
-roiManager("reset");
-
-selectedRoisFilePath = imageDirectory + imageName + "_stomata_ROIs.zip";
-if(File.exists(selectedRoisFilePath)){
-	roiManager("open", selectedRoisFilePath);
-	
-	for (i = 0; i < roiManager("count"); i++) {
-		//measure ROI
-		roiManager("select", i);
-		run("Measure");
-
-		//measure line
-		roiManager("select", i);
-		run("Line Width...", "line=2");
-		run("Area to Line");
-		run("Measure");
-	}
-	
-	saveAs("Results", imageDirectory + "/" + imageName +"_stomata.csv");
-}else{
-	Dialog.create("Selected ROIs file not found!");
-	Dialog.addMessage("Selected ROIs file for image: "+ imageName+ " NOT FOUND! Ty KoXo!!!");
-	Dialog.show();
-}
+//run("Clear Results");
+//roiManager("reset");
 
 //runMacro("my_macros/pomocna_makra/close_windows.ijm");

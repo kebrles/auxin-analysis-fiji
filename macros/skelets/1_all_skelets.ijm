@@ -29,6 +29,7 @@ for(i = 0; i < roiManager("count"); i++){
 	for( j = 1; j <= nSlices; j++){
 		roiManager("select", i);
 		Roi.setPosition(j);
+		setSlice(j);
 		run("Line Width...", "line=2");
 		run("Area to Line");
 		run("Measure");
@@ -45,6 +46,7 @@ for(i = 0; i < roiManager("count"); i++){
 	if(bestSlice == 0){
 		exit("Slice error");
 	}
+	print(bestSlice);
 }
 
 roiManager("save", imageDirectory + "/" + imageName + "_raw_ROIs.zip");

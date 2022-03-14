@@ -1,5 +1,4 @@
 #@ File (label = "Input directory", style = "directory") input
-suffix = ".czi" // !!! suffix (pripona obrazku)
 
 processFolder(input); //volame function
 
@@ -63,7 +62,7 @@ function processFolder(input) {
 
 // for (i = 0; i < 1; i++) {
 for (i = 0; i < list.length; i++) {
-		if(endsWith(list[i], suffix)){
+		if(endsWith(list[i], ".czi") || endsWith(list[i], ".tif")){
 			processFile(input+"\\"+ list[i]);
 			close("*");
 

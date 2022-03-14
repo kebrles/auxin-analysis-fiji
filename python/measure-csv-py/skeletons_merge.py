@@ -19,7 +19,7 @@ def writeDataDictToCsv(data, path):
         writer = csv.writer(csvfile, dialect='excel', delimiter=",")
 
         # hlavicka = nazvy sloupcu
-        writer.writerow(["Image", "Order", "ROI", "Area", "PM", "cytosol", "PM/cytosol"])
+        writer.writerow(["Image", "Order", "Area", "PM", "cytosol", "PM/cytosol"])
 
         for key in data:
             image_data = data[key]
@@ -34,7 +34,7 @@ def writeDataDictToCsv(data, path):
                 else:
                     row.insert(0, '')
                 row.append(index/2 + 1) # "Order"
-                row.append(makeRoiLabel(image_data[index][1])) # ROI label
+                #row.append(makeRoiLabel(image_data[index][1])) # ROI label
                 row.append(image_data[index][2]) #area
                 row.append(image_data[index+1][3]) # under line average - "PM"
                 row.append(image_data[index][3]) # ROI average - "cytosol"
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     print("Processed files: ")
     directory = sys.argv[1]
     file_type = sys.argv[2]  # for example: reviewed - will process only measurements with 'reviewed' in name
-    files = filter(lambda x: x.endswith(".tif"), os.listdir(directory))
+    files = filter(lambda x: x.endswith(".czi") or x.endswith(".tif"), os.listdir(directory))
 
     all_data = dict()
     for file in files:

@@ -38,7 +38,12 @@ def writeDataDictToCsv(data, path):
                 row.append(image_data[index][2]) #area
                 row.append(image_data[index+1][3]) # under line average - "PM"
                 row.append(image_data[index][3]) # ROI average - "cytosol"
-                row.append(format(float(image_data[index+1][3]) / float(image_data[index][3]), ".4f")) # PM/cytosol
+                try:
+                    row.append(format(float(image_data[index+1][3]) / float(image_data[index][3]), ".4f")) # PM/cytosol
+                except:
+                    print ("Error!!!!")
+                    print(key)
+                    print(index/2+1)
 
 
                 writer.writerow(row)

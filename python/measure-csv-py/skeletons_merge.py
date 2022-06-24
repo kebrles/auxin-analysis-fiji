@@ -35,11 +35,11 @@ def writeDataDictToCsv(data, path):
                     row.insert(0, '')
                 row.append(index/2 + 1) # "Order"
                 #row.append(makeRoiLabel(image_data[index][1])) # ROI label
-                row.append(image_data[index][2]) #area
-                row.append(image_data[index+1][3]) # under line average - "PM"
-                row.append(image_data[index][3]) # ROI average - "cytosol"
+                row.append(image_data[index][1]) #area
+                row.append(image_data[index+1][2]) # under line average - "PM"
+                row.append(image_data[index][2]) # ROI average - "cytosol"
                 try:
-                    row.append(format(float(image_data[index+1][3]) / float(image_data[index][3]), ".4f")) # PM/cytosol
+                    row.append(format(float(image_data[index+1][2]) / float(image_data[index][2]), ".4f")) # PM/cytosol
                 except:
                     print ("Error!!!!")
                     print(key)

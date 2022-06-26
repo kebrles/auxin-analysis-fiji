@@ -26,13 +26,13 @@ function measureImage(imageName){
 		roiManager("open", roisFilePath);
 		selectWindow(greenChannelName);
 		roiManager("Measure");
-		saveAs("Results", imageDirectory + "/" + imageName+"_selected_GREEN.csv");
+		saveAs("Results", imageDirectory + "/" + imageName+"_selected.csv");
 		
 		
 	
 	}else{
 		Dialog.create("ROIs file not found!");
-		Dialog.addMessage("ROIs file for image: "+ imageName+ " NOT FOUND! Ty KoXo!!!");
+		Dialog.addMessage("ROIs file for image: "+ imageName+ " NOT FOUND! ");
 		Dialog.show();
 	}
 	runMacro("my_macros/pomocna_makra/close_windows.ijm");

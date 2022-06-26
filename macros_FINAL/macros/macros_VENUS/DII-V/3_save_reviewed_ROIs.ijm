@@ -1,6 +1,3 @@
-// po rucnim upraveni ROIu si pustis tohle makre na ulozeni 
-// zabrani to preklepu v nazvu ROI souboru
-
 imageDirectory = getDirectory("current");
 
 imageName = getInfo("image.filename");

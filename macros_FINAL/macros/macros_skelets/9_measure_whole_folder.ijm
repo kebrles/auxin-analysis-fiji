@@ -29,7 +29,7 @@ function measureImage(path){
 		
 	}else{
 		Dialog.create("Selected ROIs file not found!");
-		Dialog.addMessage("Selected ROIs file for image: "+ imageName+ " NOT FOUND! Ty KoXo!!!");
+		Dialog.addMessage("Selected ROIs file for image: "+ imageName+ " NOT FOUND! ");
 		Dialog.show();
 	}
 }

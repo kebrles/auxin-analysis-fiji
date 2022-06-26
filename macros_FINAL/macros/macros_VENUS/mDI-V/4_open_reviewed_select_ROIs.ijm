@@ -6,8 +6,11 @@ imageName = File.getName(path);
 
 greenChannelName = imageName + " - C=0";
 
-selectWindow(greenChannelName);
+// close white channel
+selectWindow(imageName + " - C=1");
+close();
+
 run("Enhance Contrast...", "saturated=0.9 normalize process_all");
 
-roiManager("open", imageDirectory + "/" + imageName+"_reviewed_ROIs_2.zip");
+roiManager("open", imageDirectory + "/" + imageName+"_reviewed_ROIs.zip");
 

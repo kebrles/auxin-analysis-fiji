@@ -39,3 +39,8 @@ roiManager("save", imageDirectory + File.nameWithoutExtension + "_stomata_ROIs.z
 
 // close????
 
+close("*");
+
+run("Clear Results");
+
+roiManager("reset");

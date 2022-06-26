@@ -11,29 +11,35 @@ function measureImage(imageName){
 	imageDirectory = getDirectory("current");
 	imageName = getInfo("image.filename");
 
-	redChannelName = imageName + " - C=2";
+	redChannelName = imageName + " - C=1";
+	greenChannelName = imageName + " - C=0";
 	
 	// close white channel
-	selectWindow(imageName + " - C=1");
+	selectWindow(imageName + " - C=2");
 	close();
 	
-	selectWindow(imageName + " - C=0");
-	close();
+	
 	
 	//TODO change "_raw_ROIs.zip" to "_reviewed_ROIs.zip" ;-)
-	roisFilePath = imageDirectory + imageName+"_selected_ROIs_cells.zip";
+	roisFilePath = imageDirectory + imageName+"_selected_ROIs.zip";
 	print(roisFilePath);
 	if(File.exists(roisFilePath)){
 		roiManager("open", roisFilePath);
 		selectWindow(redChannelName);
 		roiManager("Measure");
-		saveAs("Results", imageDirectory + "/" + imageName+"_selected_RED_cells.csv");
+		saveAs("Results", imageDirectory + "/" + imageName+"_selected_RED.csv");
+		run("Clear Results");
+		
+		// measure and save green channel
+		selectWindow(greenChannelName);
+		roiManager("Measure");
+		saveAs("Results", imageDirectory + "/" + imageName+"_selected_GREEN.csv");
 		
 		
 	
 	}else{
 		Dialog.create("ROIs file not found!");
-		Dialog.addMessage("ROIs file for image: "+ imageName+ " NOT FOUND! Ty KoXo!!!");
+		Dialog.addMessage("ROIs file for image: "+ imageName+ " NOT FOUND! ");
 		Dialog.show();
 	}
 	runMacro("my_macros/pomocna_makra/close_windows.ijm");
